@@ -1,0 +1,25 @@
+{
+    "beers": [
+        {
+            "name": "Cascade Premium Larger"
+        },
+        {
+            "name": "Fosters"
+        },
+        {
+            "name": "Great Northern"
+        },
+        {
+            "name": "Tooheys New"
+        },
+        {
+            "name": "Tooheys Old"
+        },
+        {
+            "name": "XXXX Bitter"
+        },
+        {
+            "name": "XXXX Gold"
+        }
+    ]
+}
