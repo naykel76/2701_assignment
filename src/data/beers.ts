@@ -1,4 +1,4 @@
-import { Beer } from "src/app/interface/beer";
+import { Beer } from "src/interface/beer";
 
 export const BEERS: Beer[] = [
     { id: 1, name: "Cascade Premium Larger" },

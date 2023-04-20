@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { Beer } from 'src/app/interface/beer';
+import { Beer } from 'src/interface/beer';
 // import { BEERS } from 'src/data/beers';
 
 @Component({
