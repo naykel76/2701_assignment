@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, ModalController } from '@ionic/angular';
 import { User } from 'src/app/interface/user';
 
 @Component({
     selector: 'app-user',
     templateUrl: './user.page.html',
-    styleUrls: ['./user.page.scss'],
     standalone: true,
     imports: [IonicModule, CommonModule, FormsModule]
 })
@@ -18,14 +17,36 @@ export class UserPage implements OnInit {
         email: 'billy_mac@gmial.com'
     }
 
-    constructor() { }
+    actionSheetButtons = [
+        {
+            text: 'Take Photo',
+            icon: 'camera-outline',
+            data: {
+                action: 'share'
+            }
+        },
+        {
+            text: 'Choose Existing Photo',
+            icon: 'image-outline',
+            data: {
+                action: 'share'
+            }
+        }
+    ];
+
+    constructor(private modal: ModalController) { }
 
     ngOnInit() {
     }
 
-    updateProfile() {
-        console.log('change Profile clicked');
+    cancel() {
+        this.modal.dismiss(null, 'cancel');
     }
+
+    updateProfile() {
+        this.modal.dismiss(null, 'cancel');
+    }
+
     updateAvatar() {
         console.log('change avatar clicked');
     }

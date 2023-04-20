@@ -1,24 +1,39 @@
 <ion-header [translucent]="true">
+
     <ion-toolbar>
+
         <ion-buttons slot="start">
-            <ion-button>
+            <ion-button (click)="cancel()">
                 Cancel
             </ion-button>
         </ion-buttons>
+
         <ion-title class="tac">Edit Profile</ion-title>
+
         <ion-buttons slot="end">
-            <ion-button (click)="updateProfile()">
+            <ion-button id="open-toast" (click)="updateProfile()">
                 Save
             </ion-button>
         </ion-buttons>
+
+        <ion-toast trigger="open-toast" color="success" position="top" message="Profile Saved" [duration]="3000"></ion-toast>
+
     </ion-toolbar>
+
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
 
-    <div class="tac">
+    <div class="tac posr">
+
         <img src="assets/avatar.png" alt="profile picture">
-        <ion-icon size="large" color="secondary" src="/assets/svg/camera.svg" class="wh-5"></ion-icon>
+
+        <ion-button id="open-action-sheet" shape="round" fill="clear" size="large" class="absolute">
+            <ion-icon color="secondary" src="/assets/svg/camera.svg" class="wh-3"></ion-icon>
+        </ion-button>
+
+        <ion-action-sheet trigger="open-action-sheet" [buttons]="actionSheetButtons"></ion-action-sheet>
+
     </div>
 
     <ion-list class="mt">
@@ -29,5 +44,6 @@
             <ion-input [(ngModel)]="user.email" type="email" label="Email"></ion-input>
         </ion-item>
     </ion-list>
+
 
 </ion-content>
