@@ -22,11 +22,6 @@ export const routes: Routes = [
                     import('./location-list/location-list.page').then((m) => m.LocationListPage),
             },
             {
-                path: 'user',
-                loadComponent: () =>
-                    import('./user/user.page').then((m) => m.UserPage),
-            },
-            {
                 path: '',
                 redirectTo: '/tabs/home',
                 pathMatch: 'full',

@@ -1,6 +1,6 @@
 import { Component, EnvironmentInjector, inject } from '@angular/core';
 import { IonicModule, ModalController } from '@ionic/angular';
-import { UserPage } from './user/user.page';
+import { UserPage } from '../pages/user/user.page';
 
 @Component({
     selector: 'app-tabs',
