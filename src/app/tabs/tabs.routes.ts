@@ -19,7 +19,7 @@ export const routes: Routes = [
             {
                 path: 'venue-list',
                 loadComponent: () =>
-                    import('./venue-list/venue-list.page').then((m) => m.LocationListPage),
+                    import('./venue-list/venue-list.page').then((m) => m.VenueListPage),
             },
             {
                 path: '',

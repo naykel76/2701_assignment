@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>venue-list</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">venue-list</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-list *ngFor="let venue of venues">
+        <ion-item button>
+            <ion-label>
+                <h3>{{venue.name}}</h3>
+                <p>{{venue.address}}</p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>
