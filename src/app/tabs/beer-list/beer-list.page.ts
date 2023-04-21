@@ -1,28 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Beer } from 'src/interface/beer';
 import { BEERS } from 'src/data/beers';
+import { ToolbarAddComponent } from 'src/app/components/toolbar/toolbar-add.component';
 
 @Component({
     selector: 'app-beer-list',
     templateUrl: './beer-list.page.html',
-    styleUrls: ['./beer-list.page.scss'],
     standalone: true,
-    imports: [IonicModule, CommonModule, FormsModule]
+    imports: [IonicModule, CommonModule, FormsModule, ToolbarAddComponent]
 })
-export class BeerListPage implements OnInit {
+export class BeerListPage {
 
     beers = BEERS;
     beer?: Beer;
 
     constructor() { }
-    ngOnInit() { }
 
-    add() {
-        alert('add item')
+    add($event: any) {
+        console.log($event);
+        alert('open add modal')
+
+        // open modal
     }
+
 
     edit(index: number) {
         alert('edit item')
@@ -30,5 +33,8 @@ export class BeerListPage implements OnInit {
     delete(index: number) {
         alert('delete item')
     }
+
+
+    // getCheapestAvailable(){ // }
 
 }
