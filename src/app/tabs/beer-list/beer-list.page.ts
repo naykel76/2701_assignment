@@ -1,40 +1,113 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonModal, IonicModule } from '@ionic/angular';
 import { Beer } from 'src/interface/beer';
 import { BEERS } from 'src/data/beers';
-import { ToolbarAddComponent } from 'src/app/components/toolbar/toolbar-add.component';
+import { ToolbarCreateComponent } from 'src/app/components/toolbar/toolbar-create.component';
 
 @Component({
     selector: 'app-beer-list',
     templateUrl: './beer-list.page.html',
     standalone: true,
-    imports: [IonicModule, CommonModule, FormsModule, ToolbarAddComponent]
+    imports: [IonicModule, CommonModule, FormsModule, ToolbarCreateComponent]
 })
 export class BeerListPage {
+    @ViewChild(IonModal) modal: IonModal;
 
-    beers = BEERS;
-    beer?: Beer;
+    beers = BEERS;      // data source
+    beer?: Beer;        // ??? do i need this
+    editing: Beer;      // the current selected or empty
+    showModal = false;   // modal display state
 
-    constructor() { }
-
-    add($event: any) {
-        console.log($event);
-        alert('open add modal')
-
-        // open modal
+    constructor() {
+        this.setEditing(2);
+        this.logStuff();
     }
 
+    /**
+     * display the selected item in modal
+     * NK::BUG does not reset showModal on escape, must use cancel
+     */
+    display(id: number): void {
+        this.setEditing(id);
+        this.showModal = true;
+    }
 
+    /**
+     * log a list of values
+     */
+    logStuff(): void {
+        console.log('showModal: ' + this.showModal);
+        console.log('editing.name: ' + this.editing.name);
+
+    }
+
+    //
+    //
+    //
+    /**
+     *
+     */
+    create($event: any) {
+        // console.log($event);
+    }
     edit(index: number) {
-        alert('edit item')
+        // alert('edit item')
     }
+
+
+
     delete(index: number) {
-        alert('delete item')
+        // alert('delete item')
+    }
+
+    /**
+     * set the current selected item or ...
+     */
+    setEditing(id: number): void {
+        this.editing = this.beers.find(item => item.id === id);
+    }
+
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+
+    message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
+    name: string;
+
+
+
+    confirm() {
+        this.modal.dismiss(this.name, 'confirm');
     }
 
 
-    // getCheapestAvailable(){ // }
+
+    /**
+     * handle the current selected item
+     */
+    handleEditing(e) {
+        this.editing = e.target.value;
+    }
+
+    /**
+     * close the modal and and reset state
+     */
+    cancel(isOpen: boolean): void {
+        this.showModal = false;
+        this.modal.dismiss(null, 'cancel');
+        this.logStuff();
+        // console.log(this.showModal);
+    }
+
+
 
 }

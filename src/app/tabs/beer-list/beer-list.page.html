@@ -1,27 +1,56 @@
-<ion-header [translucent]="true">
-    <!-- <ion-toolbar>
-        <ion-title>My Beers</ion-title>
-        <ion-buttons slot="end">
-            <ion-button>
-                <ion-icon name="add-outline"></ion-icon>
-            </ion-button>
-        </ion-buttons>
-    </ion-toolbar> -->
+<nk-toolbar-add title="My Beers" (runCreate)="create($event)"></nk-toolbar-add>
 
-    <nk-toolbar-add title="My Beers" (runAdd)="add($event)"></nk-toolbar-add>
-</ion-header>
+<!-- inline modal -->
+<ion-modal [isOpen]="showModal">
+    <ng-template>
+        <ion-header>
+            <ion-toolbar>
+                <ion-buttons slot="start">
+                    <ion-button (click)="cancel(false)">Cancel</ion-button>
+                </ion-buttons>
+                <ion-title>Welcome</ion-title>
+                <ion-buttons slot="end">
+                    <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+                </ion-buttons>
+            </ion-toolbar>
+        </ion-header>
+        <!-- modal content -->
+        <ion-content>
+            <ion-list>
 
-<ion-content [fullscreen]="true">
+                <ion-item>
+                    <ion-select interface="action-sheet" label="Beers Name" label-placement="stacked"
+                        (ionChange)="handleEditing($event)">
+                        <ion-select-option *ngFor="let beer of beers;" [value]="beer">
+                            <ion-item>{{beer.name}}</ion-item>
+                        </ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <!-- current selected item 'editing' -->
+                <ion-item>
+                    <ion-label>{{editing | json}}</ion-label>
+                    <ion-thumbnail slot="start" class="mr-0">
+                        <img alt="{{editing.name}}" src="assets/images/{{editing.image}}" style="width: auto; max-height: 100%;" />
+                    </ion-thumbnail>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ng-template>
+
+</ion-modal>
+
+<ion-content>
 
     <ion-list #beer>
 
         <ion-item-sliding *ngFor="let beer of beers; index as i">
 
-            <ion-item>
+            <ion-item (click)="display(beer.id)">
                 <ion-thumbnail slot="start" class="mr-0">
                     <img alt="{{beer.name}}" src="assets/images/{{beer.image}}" style="width: auto; max-height: 100%;" />
                 </ion-thumbnail>
-                <ion-label>{{beer.name}}
+                <ion-label>
+                    {{beer.name}}
                     <div class="txt-muted">Venue Cheapest Name - $8.00</div>
                 </ion-label>
             </ion-item>
@@ -36,5 +65,7 @@
             </ion-item-options>
 
         </ion-item-sliding>
+
     </ion-list>
+
 </ion-content>
