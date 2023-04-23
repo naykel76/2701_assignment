@@ -2,9 +2,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
-    selector: 'nk-toolbar-add',
+    selector: 'nk-header-create',
     template: `
-        <ion-header [translucent]="true">
+          <ion-header [translucent]="true">
             <ion-toolbar color="primary">
                 <ion-title>{{title}}</ion-title>
                 <ion-buttons slot="end">
@@ -21,7 +21,7 @@ import { IonicModule } from '@ionic/angular';
     standalone: true,
     imports: [IonicModule]
 })
-export class ToolbarCreateComponent {
+export class HeaderCreateComponent {
 
     @Input() title?: String;
     @Output() runCreate = new EventEmitter<any>;
@@ -34,5 +34,6 @@ export class ToolbarCreateComponent {
     create() {
         this.runCreate.emit()
     }
+
 
 }

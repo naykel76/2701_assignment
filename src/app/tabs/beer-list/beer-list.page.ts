@@ -4,13 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { IonModal, IonicModule } from '@ionic/angular';
 import { Beer } from 'src/interface/beer';
 import { BEERS } from 'src/data/beers';
-import { ToolbarCreateComponent } from 'src/app/components/toolbar/toolbar-create.component';
+import { HeaderCreateComponent } from 'src/app/components/header-create.component';
 
 @Component({
     selector: 'app-beer-list',
     templateUrl: './beer-list.page.html',
     standalone: true,
-    imports: [IonicModule, CommonModule, FormsModule, ToolbarCreateComponent]
+    imports: [IonicModule, CommonModule, FormsModule, HeaderCreateComponent]
 })
 export class BeerListPage {
     @ViewChild(IonModal) modal: IonModal;
