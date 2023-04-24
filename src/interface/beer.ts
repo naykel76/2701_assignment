@@ -1,5 +1,5 @@
 export interface Beer {
-    id: number;
+    beer_id: number;
     name: string;
     image: string;
 }

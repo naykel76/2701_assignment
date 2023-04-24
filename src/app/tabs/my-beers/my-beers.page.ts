@@ -17,10 +17,10 @@ export class MyBeersPage {
     @ViewChild(IonModal) modal: IonModal;
 
     myBeers = MYBEERS;      // data source
-    beers = BEERS;      // data source
-    beer?: Beer;        // ??? do i need this
-    editing: Beer;      // the current selected or empty
-    showModal = false;   // modal display state
+    beers = BEERS;          // data source
+    beer?: Beer;            // ??? do i need this
+    editing: Beer;          // the current selected or empty
+    showModal = false;      // modal display state
 
     constructor() {
         this.setEditing(2);
@@ -37,6 +37,15 @@ export class MyBeersPage {
     }
 
     /**
+     * set the current selected to display or edit
+     * NK?? should this be an async function to prevent editing modal firing before data is resolved?
+    */
+
+    setEditing(id: number): void {
+        this.editing = this.beers.find(item => item.beer_id === id);
+    }
+
+    /**
      * log a list of values
      */
     logStuff(): void {
@@ -45,31 +54,28 @@ export class MyBeersPage {
 
     }
 
-    //
-    //
-    //
+
     /**
      *
      */
     create($event: any) {
+        this.showModal = true;
+        //
+        this.editing = null;
+        // alert('open modal')
         // console.log($event);
     }
+
     edit(index: number) {
         // alert('edit item')
     }
-
 
 
     delete(index: number) {
         // alert('delete item')
     }
 
-    /**
-     * set the current selected item or ...
-     */
-    setEditing(id: number): void {
-        this.editing = this.beers.find(item => item.id === id);
-    }
+
 
     //
     //
@@ -97,6 +103,7 @@ export class MyBeersPage {
      * handle the current selected item
      */
     handleEditing(e) {
+        // NK::TD manage when null
         this.editing = e.target.value;
     }
 

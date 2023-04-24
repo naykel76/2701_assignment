@@ -1,8 +1,8 @@
-export const MYBEERS = [
-    { "id": 3, "name": "Great Northern", "image": "great-northern.jpg" },
-    { "id": 7, "name": "Stone and Wood", "image": "stone-and-wood.jpg" },
-    { "id": 8, "name": "Tooheys Extra Dry", "image": "tooheys-extra-dry.jpg" }
-]
+export const MYBEERS =
+    [{ "beer_id": 3, "name": "Great Northern", "image": "great-northern.jpg" },
+     { "beer_id": 7, "name": "Stone and Wood", "image": "stone-and-wood.jpg" },
+     { "beer_id": 8, "name": "Tooheys Extra Dry", "image": "tooheys-extra-dry.jpg" }]
+
 
 // import { Beer } from "src/interface/beer";
 

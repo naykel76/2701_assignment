@@ -14,3 +14,10 @@ Rocklea Hotel
 Will we need to implement user authentication including forgotten passwords?
 
 
+- [x] Display beer list (primary landing page)
+    - [ ] Display each item with the lowest venue price
+- [ ] Add beer (button)
+- [ ] Edit beer (swipe)
+- [ ] Delete beer (swipe)
+- [ ] Display beer detail (click)
+- [ ] Validate and confirmation actions

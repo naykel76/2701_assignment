@@ -8,7 +8,7 @@ import { IonicModule } from '@ionic/angular';
             <ion-toolbar color="primary">
                 <ion-title>{{title}}</ion-title>
                 <ion-buttons slot="end">
-                    <ion-button id="open-modal" expand="block">
+                    <ion-button id="open-modal" expand="block" (click)="create()">
                         <ion-icon name="add-outline"></ion-icon>
                     </ion-button>
                     <!-- <ion-button (click)="add()">
@@ -29,11 +29,10 @@ export class HeaderCreateComponent {
     constructor() { }
 
     /**
-     * emit the event to fire the parent create method
+     * event to fire the parent create method
      */
     create() {
         this.runCreate.emit()
     }
-
 
 }
