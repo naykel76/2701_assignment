@@ -17,7 +17,6 @@
         <!-- modal content -->
         <ion-content>
             <ion-list>
-
                 <ion-item>
                     <ion-select interface="action-sheet" label="Beers Name" label-placement="stacked"
                         (ionChange)="handleEditing($event)">
@@ -26,7 +25,7 @@
                         </ion-select-option>
                     </ion-select>
                 </ion-item>
-                <!-- current selected item 'editing' -->
+                <!-- current selected beer 'editing' -->
                 <ion-item>
                     <ion-label>{{editing | json}}</ion-label>
                     <ion-thumbnail slot="start" class="mr-0">
@@ -43,7 +42,7 @@
 
     <ion-list #beer>
 
-        <ion-item-sliding *ngFor="let beer of beers; index as i">
+        <ion-item-sliding *ngFor="let beer of myBeers; index as i">
 
             <ion-item (click)="display(beer.id)">
                 <ion-thumbnail slot="start" class="mr-0">

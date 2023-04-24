@@ -5,16 +5,18 @@ import { IonModal, IonicModule } from '@ionic/angular';
 import { Beer } from 'src/interface/beer';
 import { BEERS } from 'src/data/beers';
 import { HeaderCreateComponent } from 'src/app/components/header-create.component';
+import { MYBEERS } from 'src/data/myBeers';
 
 @Component({
-    selector: 'app-beer-list',
-    templateUrl: './beer-list.page.html',
+    selector: 'app-my-beers',
+    templateUrl: './my-beers.page.html',
     standalone: true,
     imports: [IonicModule, CommonModule, FormsModule, HeaderCreateComponent]
 })
-export class BeerListPage {
+export class MyBeersPage {
     @ViewChild(IonModal) modal: IonModal;
 
+    myBeers = MYBEERS;      // data source
     beers = BEERS;      // data source
     beer?: Beer;        // ??? do i need this
     editing: Beer;      // the current selected or empty
