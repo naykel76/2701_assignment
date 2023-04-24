@@ -6,6 +6,7 @@ import { Beer } from 'src/interface/beer';
 import { BEERS } from 'src/data/beers';
 import { HeaderCreateComponent } from 'src/app/components/header-create.component';
 import { MYBEERS } from 'src/data/myBeers';
+import { log } from 'console';
 
 @Component({
     selector: 'app-my-beers',
@@ -18,12 +19,11 @@ export class MyBeersPage {
 
     myBeers = MYBEERS;      // data source
     beers = BEERS;          // data source
-    beer?: Beer;            // ??? do i need this
-    editing: Beer;          // the current selected or empty
+    editing?: any;          // the current selected or empty
     showModal = false;      // modal display state
 
     constructor() {
-        this.setEditing(2);
+        // this.setEditing(2);
         this.logStuff();
     }
 
@@ -34,88 +34,49 @@ export class MyBeersPage {
     display(id: number): void {
         this.setEditing(id);
         this.showModal = true;
+        this.logStuff();
     }
 
     /**
-     * set the current selected to display or edit
+     * set selected beer from 'myBeers' display or edit
      * NK?? should this be an async function to prevent editing modal firing before data is resolved?
     */
-
     setEditing(id: number): void {
-        this.editing = this.beers.find(item => item.beer_id === id);
+        this.editing = this.myBeers.find(item => item.beer_id === id);
     }
 
     /**
      * log a list of values
      */
     logStuff(): void {
+        console.clear();
         console.log('showModal: ' + this.showModal);
-        console.log('editing.name: ' + this.editing.name);
+
+        console.log(this.myBeers);
+
+
+        if (this.editing != undefined) {
+            console.log('editing.name: ' + this.editing.name);
+            console.log('editing.is_favourite: ' + this.editing.is_favourite);
+        } else {
+            console.log('editing: ' + this.editing);
+        }
 
     }
 
 
-    /**
-     *
-     */
     create($event: any) {
-        this.showModal = true;
-        //
-        this.editing = null;
-        // alert('open modal')
-        // console.log($event);
+        alert('create');
     }
 
     edit(index: number) {
-        // alert('edit item')
+        alert('edit');
     }
-
 
     delete(index: number) {
-        // alert('delete item')
+        alert('delete');
     }
 
-
-
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-
-    message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
-    name: string;
-
-
-
-    confirm() {
-        this.modal.dismiss(this.name, 'confirm');
-    }
-
-
-
-    /**
-     * handle the current selected item
-     */
-    handleEditing(e) {
-        // NK::TD manage when null
-        this.editing = e.target.value;
-    }
-
-    /**
-     * close the modal and and reset state
-     */
-    cancel(isOpen: boolean): void {
-        this.showModal = false;
-        this.modal.dismiss(null, 'cancel');
-        this.logStuff();
-        // console.log(this.showModal);
-    }
 
 
 

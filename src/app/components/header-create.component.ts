@@ -11,9 +11,6 @@ import { IonicModule } from '@ionic/angular';
                     <ion-button id="open-modal" expand="block" (click)="create()">
                         <ion-icon name="add-outline"></ion-icon>
                     </ion-button>
-                    <!-- <ion-button (click)="add()">
-                        <ion-icon name="add-outline"></ion-icon>
-                    </ion-button> -->
                 </ion-buttons>
             </ion-toolbar>
         </ion-header>

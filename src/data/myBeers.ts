@@ -1,7 +1,36 @@
-export const MYBEERS =
-    [{ "beer_id": 3, "name": "Great Northern", "image": "great-northern.jpg" },
-     { "beer_id": 7, "name": "Stone and Wood", "image": "stone-and-wood.jpg" },
-     { "beer_id": 8, "name": "Tooheys Extra Dry", "image": "tooheys-extra-dry.jpg" }]
+export const MYBEERS =[
+    {
+        "beer_id": 6,
+        "is_favourite": 1,
+        "name": "Heineken",
+        "image": "heineken.jpg"
+    },
+    {
+        "beer_id": 9,
+        "is_favourite": 0,
+        "name": "Tooheys New",
+        "image": "tooheys-new.jpg"
+    },
+    {
+        "beer_id": 7,
+        "is_favourite": 0,
+        "name": "Stone and Wood",
+        "image": "stone-and-wood.jpg"
+    },
+    {
+        "beer_id": 1,
+        "is_favourite": 0,
+        "name": "Carlton Dry",
+        "image": "carlton-dry.jpg"
+    },
+    {
+        "beer_id": 2,
+        "is_favourite": 0,
+        "name": "Coopers Dark",
+        "image": "coopers-dark.jpg"
+    }
+]
+
 
 
 // import { Beer } from "src/interface/beer";
