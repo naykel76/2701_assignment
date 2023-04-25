@@ -1,51 +1,114 @@
-export const MYBEERS =[
-    {
-        "beer_id": 6,
-        "is_favourite": 1,
-        "name": "Heineken",
-        "image": "heineken.jpg"
-    },
-    {
-        "beer_id": 9,
-        "is_favourite": 0,
-        "name": "Tooheys New",
-        "image": "tooheys-new.jpg"
-    },
-    {
-        "beer_id": 7,
-        "is_favourite": 0,
-        "name": "Stone and Wood",
-        "image": "stone-and-wood.jpg"
-    },
+export const MYBEERS = [
     {
         "beer_id": 1,
         "is_favourite": 0,
         "name": "Carlton Dry",
-        "image": "carlton-dry.jpg"
+        "image": "carlton-dry.jpg",
+        "venues": [
+            {
+                "name": "Acacia Ridge Hotel",
+                "price": 10.38,
+            },
+            {
+                "name": "Runcorn Tavern",
+                "price": 9.90,
+            },
+            {
+                "name": "Sunnybank Hotel",
+                "price": 10.49,
+            }
+        ]
     },
     {
-        "beer_id": 2,
+        "beer_id": 12,
+        "is_favourite": 1,
+        "name": "XXXX Gold",
+        "image": "xxxx-gold.jpg",
+        "venues": [
+            {
+                "name": "Acacia Ridge Hotel",
+                "price": 9.38,
+            },
+            {
+                "name": "Runcorn Tavern",
+                "price": 10.49,
+            },
+            {
+                "name": "Sunnybank Hotel",
+                "price": 9.90,
+            },
+            {
+                "name": "Rocklea Hotel",
+                "price": 9.43,
+            },
+            {
+                "name": "Greenbank RSL",
+                "price": 7.95,
+            }
+        ]
+    },
+    {
+        "beer_id": 3,
         "is_favourite": 0,
-        "name": "Coopers Dark",
-        "image": "coopers-dark.jpg"
+        "name": "Great Northern",
+        "image": "great-northern.jpg",
+        "venues": [
+            {
+                "name": "Acacia Ridge Hotel",
+                "price": 10.38,
+            },
+            {
+                "name": "Runcorn Tavern",
+                "price": 9.90,
+            },
+            {
+                "name": "Sunnybank Hotel",
+                "price": 10.49,
+            }
+        ]
+    },
+    {
+        "beer_id": 8,
+        "is_favourite": 0,
+        "name": "Tooheys Extra Dry",
+        "image": "tooheys-extra-dry.jpg",
+        "venues": [
+            {
+                "name": "Acacia Ridge Hotel",
+                "price": 9.38,
+            },
+            {
+                "name": "Runcorn Tavern",
+                "price": 10.49,
+            },
+            {
+                "name": "Sunnybank Hotel",
+                "price": 9.90,
+            },
+            {
+                "name": "Rocklea Hotel",
+                "price": 9.43,
+            },
+            {
+                "name": "Greenbank RSL",
+                "price": 7.95,
+            }
+        ]
+    },
+    {
+        "beer_id": 11,
+        "is_favourite": 1,
+        "name": "XXXX Bitter",
+        "image": "xxxx-bitter.jpg",
+        "venues": [
+            {
+                "name": "Calamvale Hotel",
+                "price": 7.37,
+            },
+            {
+                "name": "Lucky Star Tavern",
+                "price": 9.75,
+            },
+        ]
     }
 ]
-
-
-
-// import { Beer } from "src/interface/beer";
-
-// export const BEERS: Beer[] = [
-//     { id: 1, name: 'Carlton Dry', image: 'carlton-dry.jpg' },
-//     { id: 2, name: 'Coopers Dark', image: 'coopers-dark.jpg' },
-//     { id: 3, name: 'Great Northern', image: 'great-northern.jpg' },
-//     { id: 4, name: 'Hahn Premium Light', image: 'hahn-premium-light.jpg' },
-//     { id: 5, name: 'Hahn Super Dry', image: 'hahn-super-dry.jpg' },
-//     { id: 6, name: 'Heineken', image: 'heineken.jpg' },
-//     { id: 7, name: 'Stone and Wood', image: 'stone-and-wood.jpg' },
-//     { id: 8, name: 'Tooheys Extra Dry', image: 'tooheys-extra-dry.jpg' },
-//     { id: 9, name: 'Tooheys New', image: 'tooheys-new.jpg' },
-//     { id: 10, name: 'Victoria Bitter', image: 'victoria-bitter.jpg' },
-//     { id: 11, name: 'XXXX Bitter', image: 'xxxx-bitter.jpg' },
-//     { id: 12, name: 'XXXX Gold', image: 'xxxx-gold.jpg' }
-// ];
