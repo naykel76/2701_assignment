@@ -4,7 +4,7 @@
             <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
         </ion-buttons>
         <ion-title class="tac">
-            <h2>{{beer.name}}</h2>
+            <h2>{{editing ? beer.name : 'Add Beer'}}</h2>
         </ion-title>
         <ion-buttons slot="end">
             <ion-button (click)="save()" [strong]="true">Confirm</ion-button>
@@ -13,44 +13,54 @@
 </ion-header>
 
 <ion-content>
+    <div *ngIf="editing == true; then thenBlock else elseBlock"></div>
+    <!-- display/editing/save -->
+    <ng-template #thenBlock>
+        <ion-list>
+            <ion-item>
+                <ion-checkbox [(ngModel)]="beer.is_favourite">Favourite</ion-checkbox>
+            </ion-item>
 
-    <ion-list>
-        <!-- edit beer -->
+            <ion-item>
+                <ion-img src="assets/images/{{beer.image}}" alt="{{beer.name}}" class="mx-auto py-1"></ion-img>
+            </ion-item>
+
+            <nk-beer-venues beerVenues="{{beer.venues}}" />
+
+        </ion-list>
+    </ng-template>
+
+    <!-- create/save -->
+    <ng-template #elseBlock>
+
         <ion-item>
-            <ion-checkbox [(ngModel)]="beer.is_favourite">Favourite</ion-checkbox>
+            <ion-select interface="action-sheet" label="Select Beer" label-placement="stacked" (ionChange)="onSelectChange($event)">
+                <ion-select-option *ngFor="let beer of beers;" [value]="beer">
+                    <ion-item>{{beer.name}}</ion-item>
+                </ion-select-option>
+            </ion-select>
         </ion-item>
 
-        <ion-item>
-            <ion-img src="assets/images/{{beer.image}}" alt="{{beer.name}}" class="mx-auto py-1"></ion-img>
-        </ion-item>
 
-        <ion-toolbar color="dark">
-            <ion-title>Venue Pricing</ion-title>
-            <ion-buttons slot="end">
-                <ion-button id="open-modal" expand="block" (click)="addVenue()">
-                    <ion-icon name="add-outline"></ion-icon>
-                </ion-button>
-            </ion-buttons>
-        </ion-toolbar>
+        <div *ngIf="selectedBeer != undefined; then thenBlock"></div>
 
-        <div>
-            <ion-item-sliding *ngFor="let venue of beer.venues">
-                <ion-item>
-                    <div class="flex space-between w-full">
-                        <div>{{venue.name}}</div>
-                        <div>${{venue.price}}</div>
-                    </div>
-                </ion-item>
-                <ion-item-options>
-                    <ion-item-option side="start" color="success">
-                        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
-                    </ion-item-option>
-                    <ion-item-option color="danger">
-                        <ion-icon slot="icon-only" name="trash"></ion-icon>
-                    </ion-item-option>
-                </ion-item-options>
-            </ion-item-sliding>
-        </div>
+        <ng-template #thenBlock>
+            <ion-item>
+                <ion-checkbox [(ngModel)]="beer.is_favourite">Favourite</ion-checkbox>
+            </ion-item>
+            <ion-item class="ion-padding">
+                <ion-img src="assets/images/{{selectedBeer.image}}" alt="{{selectedBeer.name}}" class="mx-auto"></ion-img>
+            </ion-item>
 
-    </ion-list>
+            <ion-list>
+                <h2>display venues component</h2>
+                <!-- <nk-beer-venues beerVenues="{{beer.venues}}" /> -->
+            </ion-list>
+
+        </ng-template>
+
+    </ng-template>
+
 </ion-content>
+
+
