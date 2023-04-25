@@ -2,9 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonModal, IonicModule } from '@ionic/angular';
-import { Beer } from 'src/interface/beer';
-import { BEERS } from 'src/data/beers';
 import { HeaderCreateComponent } from 'src/app/components/header-create.component';
+import { BEERS } from 'src/data/beers';
 import { MYBEERS } from 'src/data/myBeers';
 import { log } from 'console';
 
@@ -22,19 +21,67 @@ export class MyBeersPage {
     editing?: any;          // the current selected or empty
     showModal = false;      // modal display state
 
+
+    // for data binding
+    beer = {
+        //     'beer_id': null,
+        //     'is_favourite': 0,
+        'name': '',
+        //     'image': '',
+        //     'venues': []
+    }
+
+    selectedBeer: any;      // selected beer before save
+
     constructor() {
-        // this.setEditing(2);
+        // this.setEditing(12);
         this.logStuff();
     }
 
     /**
-     * display the selected item in modal
-     * NK::BUG does not reset showModal on escape, must use cancel
+     * display the selected (editing) beer
      */
     display(id: number): void {
         this.setEditing(id);
         this.showModal = true;
-        this.logStuff();
+    }
+
+
+    /**
+     *
+     */
+
+    save() {
+
+        this.modal.dismiss(null, 'save'); // this may be redundant
+
+        this.modal.onDidDismiss()
+            .then((res) => {
+                console.log(res);
+
+                // alert();
+                // if (res.role == 'cancel') {
+                //     console.log('do nothing');
+                // } else {
+                //     this.contacts.push(res.data);
+                // }
+            });
+    }
+
+
+    /**
+     * set the selected beer from select options
+     */
+    onSelectChange(event: any): void {
+        this.selectedBeer = event.detail.value;
+    }
+
+
+    /**
+     * open modal with add options
+     */
+    create($event: any, $type: string) {
+        this.showModal = true;
     }
 
     /**
@@ -51,33 +98,38 @@ export class MyBeersPage {
     logStuff(): void {
         console.clear();
         console.log('showModal: ' + this.showModal);
-
         console.log(this.myBeers);
-
-
         if (this.editing != undefined) {
             console.log('editing.name: ' + this.editing.name);
             console.log('editing.is_favourite: ' + this.editing.is_favourite);
         } else {
             console.log('editing: ' + this.editing);
         }
-
-    }
-
-
-    create($event: any) {
-        alert('create');
     }
 
     edit(index: number) {
         alert('edit');
     }
 
-    delete(index: number) {
-        alert('delete');
+
+    /**
+     * delete selected item
+     *
+     * NK::TD
+     * - get this to handle deleting both the beer and venues
+     * - confirmation modal
+     * - confirm delete message
+     */
+    delete(i: number) {
+        this.myBeers.splice(i, 1);
     }
 
-
-
+    /**
+     * close the modal and reset state
+     */
+    cancel(event: Event): void {
+        this.showModal = false;
+        this.modal.dismiss(null, 'cancel'); // this may be redundant
+    }
 
 }
