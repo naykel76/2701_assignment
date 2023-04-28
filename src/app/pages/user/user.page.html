@@ -1,41 +1,28 @@
 <ion-header [translucent]="true">
-
     <ion-toolbar>
-
         <ion-buttons slot="start">
             <ion-button (click)="cancel()">
                 Cancel
             </ion-button>
         </ion-buttons>
-
         <ion-title class="tac">Edit Profile</ion-title>
-
         <ion-buttons slot="end">
             <ion-button id="open-toast" (click)="updateProfile()">
                 Save
             </ion-button>
         </ion-buttons>
-
         <ion-toast trigger="open-toast" color="success" position="top" message="Profile Saved" [duration]="3000"></ion-toast>
-
     </ion-toolbar>
-
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-
     <div class="tac posr">
-
         <img src="assets/avatar.png" alt="profile picture">
-
         <ion-button id="open-action-sheet" shape="round" fill="clear" size="large" class="absolute">
             <ion-icon color="secondary" src="/assets/svg/camera.svg" class="wh-3"></ion-icon>
         </ion-button>
-
         <ion-action-sheet trigger="open-action-sheet" [buttons]="actionSheetButtons"></ion-action-sheet>
-
     </div>
-
     <ion-list class="mt">
         <ion-item>
             <ion-input [(ngModel)]="user.name" label="Name"></ion-input>
@@ -43,12 +30,19 @@
         <ion-item>
             <ion-input [(ngModel)]="user.email" type="email" label="Email"></ion-input>
         </ion-item>
-        <ion-item>
-            <ion-input  type="date" label="Date"></ion-input>
-            <!-- <ion-datetime></ion-datetime> -->
-            <!-- https://www.positronx.io/ionic-angular-date-time-picker-example/ -->
+        <ion-item id="open-date-popover">
+            <ion-icon name="calendar-outline" slot="start"></ion-icon>
+            <ion-label>Birthday</ion-label>
+            <ion-text slot="end">{{user.birthday}}</ion-text>
         </ion-item>
+        <ion-popover trigger="open-date-popover" size="cover">
+            <ng-template>
+                <!-- value is passed using the template reference '#bday' because the ngModel hates the dates! -->
+                <!-- NK::TD can not find a way to select year, what event fires? -->
+                <!-- <ion-datetime #bday presentation="date" (ionChange)="setBirthday(bday.value)" [showDefaultButtons]="true" size="cover"></ion-datetime> -->
+                <ion-datetime #bday presentation="date" (ionChange)="setBirthday(bday.value)"
+                [preferWheel]="true" [showDefaultButtons]="true" size="cover"></ion-datetime>
+            </ng-template>
+        </ion-popover>
     </ion-list>
-
-
 </ion-content>

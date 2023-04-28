@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule, ModalController } from '@ionic/angular';
+import { IonicModule, ModalController, IonPopover } from '@ionic/angular';
 import { User } from 'src/interface/user';
+import { format, parseISO } from 'date-fns';
 
 @Component({
     selector: 'app-user',
@@ -10,11 +11,14 @@ import { User } from 'src/interface/user';
     standalone: true,
     imports: [IonicModule, CommonModule, FormsModule]
 })
-export class UserPage implements OnInit {
+export class UserPage {
+
+    @ViewChild(IonPopover) popover: IonPopover;
 
     user: User = {
         name: 'Billy McDoogle',
-        email: 'billy_mac@gmail.com'
+        email: 'billy_mac@gmail.com',
+        birthday: '23/09/1996'
     }
 
     actionSheetButtons = [
@@ -36,9 +40,17 @@ export class UserPage implements OnInit {
 
     constructor(private modal: ModalController) { }
 
-    ngOnInit() {
+    /**
+     * set user birthday to human readable string
+     */
+    setBirthday(value) {
+        this.user.birthday = format(parseISO(value), 'dd/MM/yyyy');
+        // this.popover.dismiss();
     }
 
+    /**
+     * close the modal and do nothing
+     */
     cancel() {
         this.modal.dismiss(null, 'cancel');
     }

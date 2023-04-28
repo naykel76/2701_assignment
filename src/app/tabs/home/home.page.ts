@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonModal, IonPicker, IonPopover, IonicModule } from '@ionic/angular';
 
 @Component({
     selector: 'app-home',
@@ -9,11 +9,13 @@ import { IonicModule } from '@ionic/angular';
     standalone: true,
     imports: [IonicModule, CommonModule, FormsModule]
 })
-export class HomePage implements OnInit {
+export class HomePage {
+
+    // name: 'Billy McDoogle';
+    // email: 'billy_mac@gmail.com';
+    // birthdayForHumans = '23/09/1976';
 
     constructor() { }
-
-    ngOnInit() { }
 
     /**
      * add date and selected venue to logs
