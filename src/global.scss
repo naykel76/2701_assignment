@@ -46,3 +46,7 @@ a {
 svg {
     fill: currentcolor; // allows svg to inherit color
 }
+
+.round {
+    border-radius: 100vmax;
+}

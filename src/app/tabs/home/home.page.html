@@ -1,45 +1,72 @@
-<ion-header [translucent]="true">
-    <ion-toolbar>
-        <ion-title>home</ion-title>
-    </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
 
-    <div class=" h-screen maxw-400 mxy-auto">
-
-        <ion-icon slot="start" src="/assets/svg/beer.svg"></ion-icon>
-        <ion-icon slot="start" src="/assets/svg/cheers.svg"></ion-icon>
-        <ion-icon slot="start" src="/assets/svg/locations.svg"></ion-icon>
-        <ion-icon slot="start" src="/assets/svg/drinker.svg"></ion-icon>
-        <ion-icon slot="start" src="/assets/svg/home.svg"></ion-icon>
-
-        <ion-card class="ion-padding">
-            <svg class="icon txt-blue wh-4">
-                <use xlink:href="/assets/svg/ui-sprite.svg#drinker"></use>
+    <p class="tac txt-red"> Bottom toolbar to be removed in production </p>
+    <div>
+        <div (click)="checkIn(1)" class="tac my-2">
+            <svg class="icon wh-10 blue round pxy cursor-pointer">
+                <use xlink:href="/assets/svg/ui-sprite.svg#location-pin"></use>
             </svg>
+            <h2>Check In</h2>
+        </div>
+        <ion-card>
+            <div class="flex va-c pxy-1">
+                <svg class="icon wh-4 mr-2">
+                    <use xlink:href="/assets/svg/ui-sprite.svg#cheers"></use>
+                </svg>
+                <div>
+                    <h4 class="my-0">Find Mates</h4>
+                    <p class="my-0">You have 18 mates checked in</p>
+                </div>
+            </div>
         </ion-card>
-        <ion-card class="ion-padding">
-            <svg class="icon txt-blue wh-4">
-                <use xlink:href="/assets/svg/ui-sprite.svg#locations"></use>
-            </svg>
+        <ion-card>
+            <div class="flex va-c pxy-1">
+                <svg class="icon wh-4 mr-2">
+                    <use xlink:href="/assets/svg/ui-sprite.svg#beer"></use>
+                </svg>
+                <div>
+                    <h4 class="my-0">My Beers</h4>
+                    <p class="my-0">Track beer prices</p>
+                </div>
+            </div>
         </ion-card>
-        <ion-card class="ion-padding">
-            <svg class="icon txt-blue wh-4">
-                <use xlink:href="/assets/svg/ui-sprite.svg#beer"></use>
-            </svg>
+        <ion-card>
+            <div class="flex va-c pxy-1">
+                <svg class="icon wh-4 mr-2">
+                    <use xlink:href="/assets/svg/ui-sprite.svg#venue"></use>
+                </svg>
+                <div>
+                    <h4 class="my-0">Venues</h4>
+                </div>
+            </div>
         </ion-card>
-        <ion-card class="ion-padding">
-            <svg class="icon txt-blue wh-4">
-                <use xlink:href="/assets/svg/ui-sprite.svg#home"></use>
-            </svg>
+        <ion-card>
+            <div class="flex va-c pxy-1">
+                <svg class="icon wh-4 mr-2">
+                    <use xlink:href="/assets/svg/ui-sprite.svg#drinker"></use>
+                </svg>
+                <div>
+                    <h4 class="my-0">Profile and Preferences</h4>
+                </div>
+            </div>
         </ion-card>
-        <ion-card class="ion-padding">
-            <svg class="icon txt-blue wh-4">
-                <use xlink:href="/assets/svg/ui-sprite.svg#cheers"></use>
-            </svg>
-        </ion-card>
-
     </div>
 
 </ion-content>
+
+
+<!-- <ion-card>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="auto">
+                <svg class="icon wh-3 mr-2">
+                    <use xlink:href="/assets/svg/ui-sprite.svg#drinker"></use>
+                </svg>
+            </ion-col>
+            <ion-col>
+                <h4 class="my-0">Find Mates</h4>
+                <p class="my-0">You have 18 mates checked in.</p>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-card> -->
