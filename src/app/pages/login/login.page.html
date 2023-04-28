@@ -1,0 +1,15 @@
+<ion-content [fullscreen]="true">
+    <ion-list class="ion-padding">
+        <h1>Login</h1>
+        <ion-item>
+            <ion-input [(ngModel)]="email" name="email" type="text" placeholder="E-mail" />
+        </ion-item>
+        <ion-item>
+            <ion-input [(ngModel)]="email" type="password" placeholder="Password" />
+        </ion-item>
+        <div class="mt">
+            <ion-button (click)="login()" color="primary" expand="full"> Login </ion-button>
+            <ion-button (click)="resetPassword()" fill="clear" expand="full"> Forgot Password? </ion-button>
+        </div>
+    </ion-list>
+</ion-content>

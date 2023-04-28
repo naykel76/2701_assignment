@@ -14,7 +14,7 @@ export class UserPage implements OnInit {
 
     user: User = {
         name: 'Billy McDoogle',
-        email: 'billy_mac@gmial.com'
+        email: 'billy_mac@gmail.com'
     }
 
     actionSheetButtons = [
