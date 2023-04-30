@@ -1,19 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonModal, IonPicker, IonPopover, IonicModule } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.page.html',
     standalone: true,
-    imports: [IonicModule, CommonModule, FormsModule]
+    imports: [IonicModule, CommonModule, FormsModule, RouterLink]
 })
 export class HomePage {
-
-    // name: 'Billy McDoogle';
-    // email: 'billy_mac@gmail.com';
-    // birthdayForHumans = '23/09/1976';
 
     constructor() { }
 

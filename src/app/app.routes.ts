@@ -40,13 +40,15 @@ export const routes: Routes = [
                     import('./tabs/venue-list/venue-list.page').then((m) => m.VenueListPage),
             },
             {
+                path: 'profile',
+                loadComponent: () => import('./tabs/profile/profile.page').then(m => m.ProfilePage)
+            },
+            {
                 path: '',
                 redirectTo: '/tabs/home',
                 pathMatch: 'full',
             },
         ],
     },
-
-
 
 ];

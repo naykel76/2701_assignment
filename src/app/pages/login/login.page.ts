@@ -27,11 +27,6 @@ export class LoginPage implements OnInit {
         this.router.navigate(['/tabs/home'])
     }
 
-
-
-
-
-
     /**
      * Reset the users password
      * NK?? Does ionic or angular have API to manage this?

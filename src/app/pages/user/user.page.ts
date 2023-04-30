@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule, ModalController, IonPopover } from '@ionic/angular';
 import { User } from 'src/interface/user';
 import { format, parseISO } from 'date-fns';
+import { USER } from 'src/data/user';
 
 @Component({
     selector: 'app-user',
@@ -15,11 +16,12 @@ export class UserPage {
 
     @ViewChild(IonPopover) popover: IonPopover;
 
-    user: User = {
-        name: 'Billy McDoogle',
-        email: 'billy_mac@gmail.com',
-        birthday: '23/09/1996'
-    }
+    user = USER;
+    // user: User = {
+    //     name: 'Billy McDoogle',
+    //     email: 'billy_mac@gmail.com',
+    //     birthday: '23/09/1996'
+    // }
 
     actionSheetButtons = [
         {

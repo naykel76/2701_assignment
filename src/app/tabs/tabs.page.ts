@@ -1,17 +1,24 @@
 import { Component } from '@angular/core';
 import { IonicModule, ModalController } from '@ionic/angular';
 import { UserPage } from '../pages/user/user.page';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-tabs',
     templateUrl: 'tabs.page.html',
     standalone: true,
-    imports: [IonicModule],
+    imports: [IonicModule, CommonModule],
 })
 export class TabsPage {
 
-    constructor(private modal: ModalController) { }
+    showTabs: Boolean;
 
+    constructor(private modal: ModalController, private router: Router) { }
+
+    /**
+     * display the profile modal
+     */
     async editProfile() {
 
         const modal = await this.modal.create({
@@ -27,4 +34,14 @@ export class TabsPage {
         return modal.present();
     }
 
+    /**
+     * hide the toolbar on the home page
+     */
+    showHideToolbar() {
+        if (this.router.url === '/tabs/home') {
+            this.showTabs = false;
+        } else {
+            this.showTabs = true;
+        }
+    }
 }
