@@ -15,18 +15,30 @@ export class StatsPage implements OnInit {
 
     ngOnInit() { }
 
+    /**
+     * close the modal
+     */
     cancel() {
         this.modal.dismiss(null, 'cancel');
     }
 
+    /**
+     * chart filter
+     */
     filterByWeek() {
         this.modal.dismiss(null, 'cancel');
     }
 
+    /**
+     * chart filter
+     */
     filterByMonth() {
         console.log('change avatar clicked');
     }
 
+    /**
+     * chart filter
+     */
     filterByYear() {
         console.log('change avatar clicked');
     }

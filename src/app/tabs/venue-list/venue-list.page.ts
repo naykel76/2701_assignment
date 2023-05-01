@@ -15,7 +15,6 @@ export class VenueListPage implements OnInit {
     venues = VENUES;
 
     constructor() {
-
         console.log(this.venues)
      }
 

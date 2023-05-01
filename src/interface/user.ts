@@ -3,5 +3,6 @@ export interface User {
     email: string;
     birthday: any;
     phone: any;
+    avatar: string;
     // birthday: Date;
 }

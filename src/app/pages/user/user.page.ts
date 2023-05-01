@@ -14,6 +14,11 @@ import { USER } from 'src/data/user';
 })
 export class UserPage {
 
+    // ****************************************************************************
+    // NK::TD THIS COMPONENT MAY BE OBSOLETE. IT IS NOT CURRENTLY USED BY MAY
+    // BE CONSIDERED FOR THE FINAL RELEASE
+    // ****************************************************************************
+
     @ViewChild(IonPopover) popover: IonPopover;
 
     user = USER;

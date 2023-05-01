@@ -17,7 +17,7 @@ export class TabsPage {
     constructor(private modal: ModalController, private router: Router) { }
 
     /**
-     * display the profile modal
+     *  NK::TD THIS WAS USED FOR THE ORIGINAL PROFILE MODAL AN MAY BE OBSOLETE
      */
     async editProfile() {
 

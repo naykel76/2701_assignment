@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule, ModalController } from '@ionic/angular';
@@ -13,7 +13,7 @@ import { BeerVenuesComponent } from './beer-venues.component';
     standalone: true,
     imports: [IonicModule, FormsModule, CommonModule, BeerVenuesComponent]
 })
-export class BeerModalComponent implements OnInit {
+export class BeerModalComponent {
 
     beers = BEERS;          // data source for select
     editing: boolean;       // status to define layout
@@ -27,8 +27,6 @@ export class BeerModalComponent implements OnInit {
     };
 
     constructor(private modal: ModalController) { }
-
-    ngOnInit() { }
 
     /**
      * set the selected beer from select options

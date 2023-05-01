@@ -4,7 +4,7 @@ import { IonicModule } from '@ionic/angular';
 @Component({
     selector: 'nk-header-create',
     template: `
-          <ion-header [translucent]="true">
+          <ion-header>
             <ion-toolbar color="primary">
                 <ion-title>{{title}}</ion-title>
                 <ion-buttons slot="end">

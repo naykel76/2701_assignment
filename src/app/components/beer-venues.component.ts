@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { VENUES } from 'src/data/venues';
 
@@ -10,11 +10,11 @@ import { VENUES } from 'src/data/venues';
     imports: [IonicModule, CommonModule]
 })
 
-export class BeerVenuesComponent implements OnInit {
+export class BeerVenuesComponent {
 
-    @Input() beerVenues: any; //
+    @Input() beerVenues: any;
 
-    venues = VENUES;        // data source for select
+    venues = VENUES;
 
     // this is only required for testing and development
     beer = {
@@ -41,16 +41,10 @@ export class BeerVenuesComponent implements OnInit {
         ]
     };
 
-    constructor() {
+    constructor() { }
 
-
-
-
-    }
-
-    ngOnInit() { }
-
-    // this only adds the venue, it does not save it???
+    // NK?? this only adds the venue, it does not save it. considerations need
+    // to be made about saving multiple objects at the same time
     addVenue() {
         alert('add venue');
     }

@@ -15,7 +15,7 @@ import { BeerVenuesComponent } from 'src/app/components/beer-venues.component';
 })
 export class MyBeersPage {
 
-    myBeers = MYBEERS;      // data source
+    myBeers = MYBEERS; // data source
 
     // this is only required for testing and development
     beerSample = {
@@ -42,11 +42,7 @@ export class MyBeersPage {
         ]
     };
 
-    constructor(private modalCtrl: ModalController) {
-
-
-
-    }
+    constructor(private modalCtrl: ModalController) { }
 
     /**
      * Open the modal to add beer

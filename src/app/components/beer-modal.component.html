@@ -20,19 +20,14 @@
             <ion-item>
                 <ion-checkbox [(ngModel)]="beer.is_favourite">Favourite</ion-checkbox>
             </ion-item>
-
             <ion-item>
                 <ion-img src="assets/images/{{beer.image}}" alt="{{beer.name}}" class="mx-auto py-1"></ion-img>
             </ion-item>
-
             <nk-beer-venues beerVenues="{{beer.venues}}" />
-
         </ion-list>
     </ng-template>
-
     <!-- create/save -->
     <ng-template #elseBlock>
-
         <ion-item>
             <ion-select interface="action-sheet" label="Select Beer" label-placement="stacked" (ionChange)="onSelectChange($event)">
                 <ion-select-option *ngFor="let beer of beers;" [value]="beer">
@@ -40,7 +35,6 @@
                 </ion-select-option>
             </ion-select>
         </ion-item>
-
 
         <div *ngIf="selectedBeer != undefined; then thenBlock"></div>
 
@@ -51,16 +45,10 @@
             <ion-item class="ion-padding">
                 <ion-img src="assets/images/{{selectedBeer.image}}" alt="{{selectedBeer.name}}" class="mx-auto"></ion-img>
             </ion-item>
-
             <ion-list>
-                <h2>display venues component</h2>
-                <!-- <nk-beer-venues beerVenues="{{beer.venues}}" /> -->
+                <!-- currently loads hard coded data for development -->
+                <nk-beer-venues beerVenues="{{beer.venues}}" />
             </ion-list>
-
         </ng-template>
-
     </ng-template>
-
 </ion-content>
-
-
