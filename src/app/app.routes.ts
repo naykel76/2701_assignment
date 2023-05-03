@@ -49,6 +49,10 @@ export const routes: Routes = [
                 pathMatch: 'full',
             },
         ],
-    },
+    },  {
+    path: 'dev',
+    loadComponent: () => import('./dev.page').then( m => m.DevPage)
+  },
+
 
 ];

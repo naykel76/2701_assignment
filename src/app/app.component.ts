@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
+import { StorageService } from './services/storage.service';
 
 @Component({
     selector: 'app-root',
@@ -9,5 +11,14 @@ import { IonicModule } from '@ionic/angular';
     imports: [IonicModule],
 })
 export class AppComponent {
-    constructor() { }
+
+
+    authenticated: Boolean
+
+    constructor(private storageService: StorageService) { }
+
+    async ngOnInit() { }
+
 }
+
+
