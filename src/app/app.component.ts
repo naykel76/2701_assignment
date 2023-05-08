@@ -12,6 +12,12 @@ import { StorageService } from './services/storage.service';
 })
 export class AppComponent {
 
+    settings = {
+        showSplash: true,
+        authenticated: false,
+        remember: false,
+        checkedIn: '' // venue
+    }
 
     authenticated: Boolean
 

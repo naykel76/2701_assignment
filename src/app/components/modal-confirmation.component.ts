@@ -1,23 +1,36 @@
-import { Component, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { IonModal, IonicModule } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
-import { ModalConfirmationComponent } from './components/modal-confirmation.component';
 
 @Component({
-    selector: 'app-dev',
-    templateUrl: './dev.page.html',
+    selector: 'nk-modal-confirmation',
+    template: `
+        <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+            <ng-template>
+                <div class="light pxy-1 my-auto mx-1">
+                    <h4>{{title}}</h4>
+                    <p>this is the message!</p>
+                    <div class="tar">
+                        <ion-button (click)="cancel()" fill="outline">Cancel</ion-button>
+                        <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+                    </div>
+                </div>
+            </ng-template>
+        </ion-modal>`,
     standalone: true,
-    imports: [IonicModule, CommonModule, FormsModule, ModalConfirmationComponent]
+    imports: [IonicModule]
 })
-export class DevPage {
+export class ModalConfirmationComponent implements OnInit {
 
     @ViewChild(IonModal) modal: IonModal;
+    @Input() title?: string;
 
     message = 'Click the button to open the modal';
     name: string;
 
+    constructor() { }
+
+    ngOnInit() { }
 
     /**
      * close the modal and do nothing
@@ -39,5 +52,4 @@ export class DevPage {
             // this.message = `The modal has been dismissed. Hello, ${ev.detail.data}!`;
         }
     }
-
 }

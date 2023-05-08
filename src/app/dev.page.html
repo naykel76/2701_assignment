@@ -1,13 +1,16 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>dev</ion-title>
-  </ion-toolbar>
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>Development Page</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">dev</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="false" class="ion-padding">
+
+    <ion-button id="open-modal">Open Modal</ion-button>
+
+    <p>{{ message }}</p>
+
+
+    <nk-modal-confirmation title="Confirm Check In"/>
+
 </ion-content>
